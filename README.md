@@ -7,6 +7,11 @@ hacks or fiddling required after install.
 
 ![Aquarium HD screensaver running](assets/screenshot.png)
 
+It installs as a first-class entry in the standard Linux Mint screensaver
+chooser — pick **"Aquarium HD"** like any built-in screensaver:
+
+![Aquarium HD in the MATE Screensaver Preferences chooser](assets/chooser.png)
+
 ---
 
 ## Install
