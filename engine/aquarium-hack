@@ -1,0 +1,22 @@
+#!/bin/bash
+# HD aquarium screensaver engine for MATE (mate-screensaver).
+# NOTE: this MUST live in /usr/libexec/xscreensaver/ — mate-screensaver only
+# accepts theme engines whose Exec path is inside that directory; an engine in
+# /usr/local/bin (or elsewhere) is silently rejected and the screen goes blank.
+# Plays a looping, muted video into the screensaver window ($XSCREENSAVER_WINDOW).
+VIDEO="/opt/aquarium-screensaver/aquarium.mp4"
+[ -f "$VIDEO" ] || exit 1
+
+MPV_OPTS=(
+  --no-config --really-quiet --no-audio
+  --loop-file=inf --panscan=1.0
+  --no-osc --no-osd-bar --cursor-autohide=always
+  --no-input-default-bindings --input-conf=/dev/null
+  --hwdec=auto --vo=gpu
+)
+
+if [ -n "$XSCREENSAVER_WINDOW" ]; then
+  exec mpv "${MPV_OPTS[@]}" --wid="$XSCREENSAVER_WINDOW" "$VIDEO"
+else
+  exec mpv "${MPV_OPTS[@]}" --fullscreen "$VIDEO"
+fi

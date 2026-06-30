@@ -1,0 +1,3 @@
+# Never commit the big video into git — it ships as a GitHub Release asset.
+aquarium.mp4
+*.mp4
